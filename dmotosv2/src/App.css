@@ -1,0 +1,293 @@
+/* Variáveis CSS para cores e espaçamento */
+:root {
+  --primary-blue: #3498db;
+  --dark-blue: #2980b9;
+  --header-bg: #2c3e50;
+  --text-dark: #333;
+  --text-medium: #555;
+  --bg-light: #f4f7f6;
+  --bg-card: #fff;
+  --bg-list-item: #ecf0f1;
+  --border-light: #e0e0e0;
+  --border-medium: #ccc;
+  --error-color: #e74c3c;
+  --error-bg: #fdd;
+  --success-color: #2ecc71;
+  --success-bg: #dfd;
+
+  --spacing-xs: 0.5rem;   /* 8px */
+  --spacing-sm: 0.75rem;  /* 12px */
+  --spacing-md: 1rem;     /* 16px */
+  --spacing-lg: 1.5rem;   /* 24px */
+  --spacing-xl: 2rem;     /* 32px */
+  --spacing-xxl: 2.5rem;  /* 40px */
+}
+
+/* Reset básico e box-sizing para consistência */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif; /* Usando Inter para um visual moderno */
+  margin: 0;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased; /* Suavização de fonte */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  max-width: 75rem; /* 1200px */
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garante que o rodapé fique no final */
+}
+
+.App-header {
+  background-color: var(--header-bg);
+  color: white;
+  padding: var(--spacing-xl);
+  text-align: center;
+  border-radius: 0.5rem; /* 8px */
+  margin-bottom: var(--spacing-xxl);
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.15); /* Sombra mais refinada */
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2.5rem; /* Tamanho da fonte em rem */
+  letter-spacing: -0.025em; /* Pequeno ajuste de espaçamento */
+}
+
+.App-header p {
+  font-size: 1.125rem;
+  opacity: 0.9;
+}
+
+.App-main {
+  flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço disponível */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxl); /* Espaçamento entre as seções */
+}
+
+.App-section {
+  background-color: var(--bg-card);
+  padding: var(--spacing-xxl);
+  border-radius: 0.75rem; /* Cantos mais arredondados */
+  box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, 0.1); /* Sombra mais proeminente */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição ao interagir */
+}
+
+.App-section:hover {
+  transform: translateY(-0.125rem); /* Leve levantamento ao passar o mouse */
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+
+.section-divider {
+  border: none;
+  height: 0.125rem; /* Espessura sutil */
+  background-color: var(--border-light);
+  margin: var(--spacing-xl) 0;
+  border-radius: 0.0625rem; /* Cantos arredondados para o divisor */
+}
+
+.form-container h2,
+.list-container h2 {
+  color: var(--primary-blue);
+  border-bottom: 0.125rem solid var(--primary-blue);
+  padding-bottom: var(--spacing-md);
+  margin-top: 0;
+  font-size: 1.75rem; /* Tamanho da fonte em rem */
+  font-weight: 600; /* Mais negrito */
+}
+
+form {
+  display: grid; /* Usando grid para layout de formulário */
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); /* Responsivo com colunas */
+  gap: var(--spacing-md); /* Espaçamento entre os campos */
+}
+
+form div {
+  margin-bottom: 0; /* Removido margin-bottom individual, usando gap do grid */
+}
+
+form label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 500; /* Peso da fonte ligeiramente mais leve */
+  color: var(--text-medium);
+  font-size: 0.9375rem; /* Tamanho da fonte ligeiramente menor */
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
+form input[type="date"],
+form select {
+  width: 100%; /* Ocupa 100% da coluna do grid */
+  padding: var(--spacing-md);
+  border: 0.0625rem solid var(--border-medium);
+  border-radius: 0.375rem; /* 6px */
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 0.1875rem rgba(52, 152, 219, 0.25); /* Sombra de foco mais suave */
+}
+
+button {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: none;
+  border-radius: 0.375rem; /* 6px */
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* Sombra sutil no botão */
+}
+
+button:hover {
+  background-color: var(--dark-blue);
+  transform: translateY(-0.0625rem); /* Leve movimento ao passar o mouse */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.list-container ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: var(--spacing-xl); /* Espaçamento superior para a lista */
+}
+
+.list-container li {
+  background-color: var(--bg-list-item);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  border-radius: 0.375rem; /* 6px */
+  border-left: 0.3125rem solid var(--primary-blue); /* Borda lateral mais espessa */
+  line-height: 1.7; /* Espaçamento de linha aprimorado */
+  box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.05); /* Sombra sutil para itens da lista */
+}
+
+.list-container li strong {
+  color: var(--header-bg); /* Cor mais escura para o texto em negrito */
+  font-weight: 600;
+}
+
+.error-message {
+  color: var(--error-color);
+  background-color: var(--error-bg);
+  padding: var(--spacing-md);
+  border-radius: 0.25rem; /* 4px */
+  margin-top: var(--spacing-md);
+  border: 0.0625rem solid var(--error-color);
+  font-weight: 500;
+}
+
+.success-message {
+  color: var(--success-color);
+  background-color: var(--success-bg);
+  padding: var(--spacing-md);
+  border-radius: 0.25rem; /* 4px */
+  margin-top: var(--spacing-md);
+  border: 0.0625rem solid var(--success-color);
+  font-weight: 500;
+}
+
+a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: text-decoration 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Rodapé */
+.App-footer {
+  background-color: var(--header-bg);
+  color: white;
+  padding: var(--spacing-lg);
+  text-align: center;
+  margin-top: var(--spacing-xxl);
+  border-radius: 0.5rem 0.5rem 0 0; /* Cantos superiores arredondados */
+  box-shadow: 0 -0.25rem 0.625rem rgba(0, 0, 0, 0.15);
+}
+
+.App-footer a {
+  color: #9bd0ff; /* Azul mais claro para links no rodapé */
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  .App {
+    padding: var(--spacing-lg);
+  }
+
+  .App-header {
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .App-header h1 {
+    font-size: 2rem;
+  }
+
+  .App-header p {
+    font-size: 1rem;
+  }
+
+  .App-section {
+    padding: var(--spacing-xl);
+  }
+
+  .form-container h2,
+  .list-container h2 {
+    font-size: 1.5rem;
+  }
+
+  form {
+    grid-template-columns: 1fr; /* Uma coluna em telas menores */
+  }
+
+  button {
+    width: 100%; /* Botão de largura total em telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    padding: var(--spacing-md);
+  }
+
+  .App-header {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .App-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .App-section {
+    padding: var(--spacing-lg);
+  }
+}
